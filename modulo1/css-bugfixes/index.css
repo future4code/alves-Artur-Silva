@@ -13,8 +13,14 @@ h2 {
     background-color: #fe7e02;
     padding: 10px 5px 10px 5px;
     color: white;
-    text-align: center;
+    text-align: center;  
 }
+button{
+    display: block;
+    align-content: center;
+    align-self: center;
+}
+
 
 input {
     height: 20px;
@@ -51,7 +57,7 @@ div img {
 }
 
 .container {
-    height: 500px;
+    height: 300px;
     text-align: center;
 }
 
@@ -67,12 +73,13 @@ div img {
   **/
 
 #container-de-descricao {
+    padding-top: 150px;
     background-color: #2274a5;
     color: white;
 }
 
 #container-de-descricao>ol {
-    padding: 15px 0px;
+
 }
 
 #container-para-comprar {
@@ -127,4 +134,10 @@ td button {
 
 #back-button:hover {
     background-color: #635a3d
+}
+.word {
+    width: 100px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
 }
