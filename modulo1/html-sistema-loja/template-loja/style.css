@@ -1,0 +1,47 @@
+body{
+    width: 400px;
+  height: 300px;
+  background-image: url(../img/capa.jpg);
+}
+header{
+    position: relative }
+header{
+    margin: 0;
+    color: white;
+    background: gray;
+    position: absolute;
+    top: 13%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
+}
+nav {
+    background-color: grey;
+    position: relative }
+nav {
+    margin: 0;
+    position: absolute;
+    top: 37%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) 
+}
+footer {
+    font-size:large;
+    position: relative }
+footer {
+    margin: 0;
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) }
+    main {
+        background-color: grey;
+        position: relative }
+    main {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) }
