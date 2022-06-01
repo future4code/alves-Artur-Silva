@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.cabeca1{
+    display: flex;
+    justify-content:space-between ;
+    align-items: center;
+    padding: 2%;
+    background-color: orange;
+
+}
+main{
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+footer{
+    margin-top: 20px;
+    background-color: orange;
+    display: flex;
+    justify-content: center;
+   }
