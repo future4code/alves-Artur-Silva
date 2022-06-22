@@ -1,36 +1,55 @@
-import React, { Component } from 'react'
+import React from "react"
 import axios from 'axios'
 
-const body = {
-    name : "User1",
-    email : "user1@email.com"
-}
-const newUser = () => {
-    const user = axios.post(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users`,
-    body,
-    {
-        headers:{
-            Authorization: "artur-soares-alves"
-    }
-}
-)
-user.then((resposta) =>{
-    console.log(resposta)
-})
-user.catch((erro) => {
-    console.log(erro.response.data.message)
-})
-}
+export default class TelaInicial extends React.Component{
+  state = {
+    nome: "",
+    email: ""
+  }
 
-export default class TelaInicial extends Component {
-  render() {
-    return (
+  handleNome = (event) => {
+    this.setState({nome:event.target.value})
+  }
+
+  handleEmail = (event) => {
+    this.setState({email:event.target.value})
+  }
+
+  fazerCadastro = () => {
+    const url = "https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users"
+    const body = {
+      name: this.state.nome,
+      email: this.state.email
+    }
+    axios.post(url, body, {
+      headers: {
+        Authorization: "artur-soares-alves"
+      }
+    })
+    .then((resposta)=>{
+      alert("Usuário cadastrado com sucesso!!")
+      this.setState({nome:"", email:""})
+    })
+    .catch((erro)=>{
+      alert(erro.response.data.message)
+    })
+
+  }
+
+  render(){
+    return(
       <div>
-        <h1>Tela inicial:</h1>
-        <button>Trocar de tela</button><br/>
-        <input placeholder='Nome'/>
-        <input placeholder='Email'/>
-        <button onClick={newUser()}>Criar Usuário</button>
+        <button onClick={this.props.irParaDetalhes}>Trocar de Tela</button>
+        <h2>Inicial</h2>      
+        <input 
+        placeholder="Nome"
+        value={this.state.nome}
+        onChange={this.handleNome}/>
+        <input 
+        placeholder="E-mail"
+        value={this.state.email}
+        onChange={this.handleEmail}/>
+        <button onClick={this.fazerCadastro}>Cadastrar</button>
       </div>
     )
   }
