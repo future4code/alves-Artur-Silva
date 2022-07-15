@@ -1,23 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState, useEffect} from "react";
+import Inicio from "./pages/Inicio"
+import Login from "./pages/Login";
+import Viagens from "./pages/Viagens";
 
 function App() {
+  
+  const [tela, setTela] = useState("inicio");
+
+
+  const telaAtual = () => {
+    switch(tela){
+      case 'inicio':
+         return <Inicio/>
+      case 'login':
+        return <Login/>
+      case 'viagens':
+        return  <Viagens/>
+        default:
+            
+    }
+  }
+    const handleLogin = () => {
+        setTela(tela - tela.value)
+        setTela(tela + "login")
+    }
+  
+    const handleInicio = () => {
+        setTela(tela - tela.value) 
+        setTela(tela + "inicio")
+    }
+  
+    const handleViagens = () => {
+        setTela(tela - tela.value)
+        setTela(tela + 'viagens')
+    }
+
+    console.log(tela)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Oi</h1>
+      <button onClick={handleLogin}>Login</button>
+      <button onClick={handleInicio}>Inicio</button>
+      <button onClick={handleViagens}>Viagens</button>
+      {telaAtual()}
     </div>
   );
 }
