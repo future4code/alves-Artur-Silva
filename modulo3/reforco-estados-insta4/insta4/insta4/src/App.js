@@ -19,13 +19,13 @@ function App() {
       />
       <Post
         nomeUsuario={"paulinho"}
-        fotoUsuario={"https://picsum.photos/50/50"}
-        fotoPost={"https://picsum.photos/200/150"}
+        fotoUsuario={"https://picsum.photos/50/50?blur"}
+        fotoPost={"https://picsum.photos/200/150?blur"}
       />
       <Post
         nomeUsuario={"pedrinho"}
-        fotoUsuario={"https://picsum.photos/50/50"}
-        fotoPost={"https://picsum.photos/200/150"}
+        fotoUsuario={"https://picsum.photos/50/50?blur=2"}
+        fotoPost={"https://picsum.photos/200/150?blur=2"}
       />
     </MainContainer>
   );

@@ -5,7 +5,8 @@ import iconeCoracaoBranco from "../../img/favorite-white.svg";
 import iconeCoracaoPreto from "../../img/favorite.svg";
 import iconeComentario from "../../img/comment_icon.svg";
 import { SecaoComentario } from "../SecaoComentario/SecaoComentario";
-
+import iconeNaoSalvo from "../../img/2x/salvar.png"
+import iconeSalvo from "../../img/2x/salvo.png"
 const PostContainer = styled.div`
   border: 1px solid gray;
   width: 300px;
@@ -40,12 +41,18 @@ const PostPhoto = styled.img`
 
 function Post(props) {
   const [curtido, setCurtido] = useState(false);
-  const [numeroCurtidas, setNumeroCurtidas] = useState(2);
+  const [numeroCurtidas, setNumeroCurtidas] = useState(0);
   const [comentando, setComentando] = useState(false);
-  const [numeroComentarios, setNumeroComentarios] = useState(1);
-
+  const [numeroComentarios, setNumeroComentarios] = useState(0);
+  const [salvo, setSalvo] = useState(false)
+  const [numeroSalvo, setNumeroSalvo] = useState(0)
   const onClickCurtida = () => {
-    console.log("Curtiu!");
+    setCurtido(!curtido)
+    if (curtido === false) {
+      setNumeroCurtidas(numeroCurtidas +1)
+    } else {
+      setNumeroCurtidas(numeroCurtidas -1)
+    }
   };
 
   const onClickComentario = () => {
@@ -70,6 +77,24 @@ function Post(props) {
   if (comentando) {
     componenteComentario = <SecaoComentario aoEnviar={aoEnviarComentario} />;
   }
+  let iconeSalvar;
+  
+  if (salvo) {
+    iconeSalvar = iconeSalvo
+  } else {
+    iconeSalvar = iconeNaoSalvo
+  }
+  const onClickSalvando = () => {
+    if(salvo) {
+      setSalvo(false)
+    } else {
+      setSalvo(true)
+      alert("Você salvou o post")
+    }
+  }
+
+ 
+
 
   return (
     <PostContainer>
@@ -88,10 +113,16 @@ function Post(props) {
         />
 
         <IconeComContador
+          icone={iconeSalvar}//ícone do botão comentario
+          onClickIcone={onClickSalvando}//abre ao clicar no botao comentario
+        />
+
+        <IconeComContador
           icone={iconeComentario}//ícone do botão comentario
           onClickIcone={onClickComentario}//abre ao clicar no botao comentario
           valorContador={numeroComentarios}//numero de comentarios do post
         />
+
         
       </PostFooter>
       {componenteComentario}
